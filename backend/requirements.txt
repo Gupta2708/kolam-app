@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pydantic
+numpy
+pandas
+torch
+python-multipart
+aiofiles
+Pillow
