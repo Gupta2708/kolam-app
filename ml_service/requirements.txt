@@ -1,9 +1,6 @@
 fastapi
 uvicorn
-pydantic
 numpy
-pandas
-torch
+pillow
 python-multipart
-aiofiles
-Pillow
+matplotlib
