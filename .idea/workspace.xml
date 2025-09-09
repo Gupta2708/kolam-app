@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4f6822d-d568-47d5-9fa9-9dac1687e1a0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/assets/kolam1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/assets/kolam1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/assets/kolam2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/assets/kolam2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/assets/kolam3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/assets/kolam3.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/screens/ARScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/screens/ARScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/screens/HomeScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/screens/KolamARScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/screens/KolamARScene.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/screens/KolamGeneratorScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/screens/KolamGeneratorScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/screens/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/screens/LoginScreen.js" afterDir="false" />
     </list>

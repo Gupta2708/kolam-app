@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Carousel from 'react-native-reanimated-carousel';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const { width } = Dimensions.get('window');
 
@@ -13,16 +14,39 @@ const images = [
 
 export default function HomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Welcome 👋</Text>
+    <LinearGradient
+    colors={['#ffe29f', '#ffa99f']}
+    style={styles.container}
+    >
+      {/* Top Bar */}
+      <View style={styles.topBar}>
+        <TouchableOpacity>
+          <Image
+            source={require('../assets/user.jpg')}
+            style={styles.userIcon}
+          />
+        </TouchableOpacity>
+
+        <View style={styles.topIcons}>
+          <TouchableOpacity style={styles.iconBtn}>
+            <Icon name="notifications-outline" size={26} color="#1e293b" />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.iconBtn}>
+            <Icon name="ellipsis-vertical" size={26} color="#1e293b" />
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      {/* Title */}
+      <Text style={styles.title}>Welcome!👋</Text>
       <Text style={styles.subtitle}>Choose an option to get started</Text>
 
       {/* Carousel Section */}
-      <View style={{ height: 220, marginBottom: 24 }}>
+      <View style={{ height: 340, marginBottom: 24 }}>
         <Carousel
           loop
           width={width * 0.9}
-          height={200}
+          height={330}
           autoPlay
           data={images}
           scrollAnimationDuration={1500}
@@ -44,32 +68,78 @@ export default function HomeScreen({ navigation }) {
           <Text style={styles.cardText}>AR View</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 24, backgroundColor: '#f9fafb', alignItems: 'center' },
-  title: { fontSize: 26, fontWeight: 'bold', marginTop: 40, color: '#2c3e50' },
-  subtitle: { fontSize: 16, color: '#7f8c8d', marginBottom: 24 },
+  container: { 
+    flex: 1, 
+    padding: 24, 
+  },
+  topBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 40,
+    marginBottom: 20,
+  },
+  userIcon: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    borderWidth: 2.5,
+    borderColor: '#af8809ff', // gold border
+  },
+  topIcons: { flexDirection: 'row' },
+  iconBtn: { marginLeft: 18 },
+
+  title: { 
+    fontSize: 28, 
+    fontWeight: 'bold', 
+    color: '#1e293b', // dark navy
+    textAlign: 'center',
+    letterSpacing: 0.5,
+  },
+  subtitle: { 
+    fontSize: 16, 
+    color: '#475569', // muted gray-blue
+    marginBottom: 28, 
+    textAlign: 'center',
+  },
+
   carouselImage: {
     width: '100%',
-    height: 200,
-    borderRadius: 12,
+    height: 330,
+    borderRadius: 20,
     resizeMode: 'cover',
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowRadius: 10,
   },
-  cardContainer: { flexDirection: 'row', justifyContent: 'space-around', width: '100%' },
+
+  cardContainer: { 
+    flexDirection: 'row', 
+    justifyContent: 'space-around', 
+    width: '100%', 
+    marginTop: 20,
+  },
   card: {
     backgroundColor: '#fff',
-    borderRadius: 12,
-    padding: 24,
+    borderRadius: 18,
+    padding: 26,
     alignItems: 'center',
     justifyContent: 'center',
     width: '45%',
     shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 6,
-    elevation: 4,
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+
   },
-  cardText: { marginTop: 12, fontSize: 16, fontWeight: '600', color: '#2c3e50' },
+  cardText: { 
+    marginTop: 12, 
+    fontSize: 17, 
+    fontWeight: '700', 
+    color: '#2c3e50' 
+  },
 });
