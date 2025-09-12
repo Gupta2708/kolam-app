@@ -1,4 +1,6 @@
 import numpy as np
+import json
+from http import HTTPStatus
 
 def generate_from_grid(grid_size):
     """
@@ -39,3 +41,15 @@ def generate_from_grid(grid_size):
 # 1. Load model in this file (see above)
 # 2. Replace procedural code with model inference
 # 3. Ensure output format: {"dots": [[x, y], ...], "strokes": [[[x, y], ...]]}
+
+# Modify your GenerateKolamHandler to return your existing image for testing
+def GenerateKolamHandler(w, r):
+    # ... existing code ...
+    
+    # FOR TESTING ONLY - Return existing image instead of ML-generated one
+    w.Header().Set("Content-Type", "application/json")
+    json.NewEncoder(w).Encode({
+        "url": "/images/sticker-png-diwali-floral-india-rangoli-kolam-floral-design-circle.png",
+        "id": "test-generated",
+        "filename": "sticker-png-diwali-floral-india-rangoli-kolam-floral-design-circle.png",
+    })
