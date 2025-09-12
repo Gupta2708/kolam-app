@@ -5,9 +5,17 @@ import math
 import os
 import requests
 from io import BytesIO
+from dotenv import load_dotenv
 
-# ------------------ DOWNLOAD KOLAM DATA ------------------
-DATA_URL = "https://raw.githubusercontent.com/Crazzygamerr/zen-kolam/a1c1facf8b39987db7c79346fd9bf8d7be66c6e3/scripts/kolam_data_numerical.txt"
+# ------------------ LOAD ENVIRONMENT VARIABLES ------------------
+# Load environment variables from .env file
+load_dotenv()
+
+# Get DATA_URL from environment variable with fallback to None
+DATA_URL = os.getenv("KOLAM_DATA_URL")
+if not DATA_URL:
+    raise EnvironmentError("KOLAM_DATA_URL environment variable is not set")
+
 DATA_FILE = os.path.join(os.path.dirname(__file__), "kolam_data_numerical.txt")
 
 # Ensure file exists

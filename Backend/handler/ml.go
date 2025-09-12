@@ -165,3 +165,33 @@ func GenerateKolamHandler(w http.ResponseWriter, r *http.Request) {
 		"filename":  filename,
 	})
 }
+
+// MLServiceHealthCheckHandler -> GET /ml-health
+// Checks the health of the ML service
+func MLServiceHealthCheckHandler(w http.ResponseWriter, r *http.Request) {
+	mlClient := ml.NewClient()
+
+	// Try to connect to the ML service
+	req, err := http.NewRequest("GET", fmt.Sprintf("%s/health", mlClient.BaseURL), nil)
+	if err != nil {
+		http.Error(w, "Failed to create request: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	resp, err := mlClient.HTTPClient.Do(req)
+	if err != nil {
+		http.Error(w, "ML service is not reachable: "+err.Error(), http.StatusServiceUnavailable)
+		return
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		http.Error(w, fmt.Sprintf("ML service returned non-OK status: %d", resp.StatusCode), http.StatusServiceUnavailable)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{
+		"status": "ML service is connected and healthy",
+	})
+}
