@@ -1,21 +1,17 @@
-// KolamARScene.js
-// ViroReact fallback - this component is not used when ViroReact is unavailable
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 export default function KolamARScene({ kolamData }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>ViroReact AR not available</Text>
-      <Text style={styles.subtext}>Using camera fallback instead</Text>
+      <Text style={styles.title}>ViroReact AR Not Available</Text>
+      <Text style={styles.subtitle}>Using camera fallback instead</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  text: { fontSize: 18, marginBottom: 8 },
-  subtext: { fontSize: 14, color: '#666' },
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#f9fafb', padding: 24 },
+  title: { fontSize: 20, fontWeight: 'bold', color: '#2c3e50', marginBottom: 8 },
+  subtitle: { fontSize: 15, color: '#7f8c8d' },
 });
-
-// To use ViroARScene, follow install steps in frontend/README.md

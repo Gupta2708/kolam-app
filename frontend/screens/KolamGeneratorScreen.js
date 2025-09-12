@@ -26,14 +26,12 @@ export default function KolamGeneratorScreen() {
         return;
       }
 
-      // prefetch to verify reachable
       const ok = await Image.prefetch(url).catch(e => {
         console.warn("prefetch failed", e);
         return false;
       });
 
       if (!ok) {
-        // try a simple fetch to get status
         try {
           const r = await fetch(url);
           console.log("image fetch status:", r.status, r.headers.get("content-type"));
