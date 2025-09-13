@@ -5,6 +5,7 @@ import math
 import os
 import requests
 from io import BytesIO
+
 from dotenv import load_dotenv
 
 # ------------------ LOAD ENVIRONMENT VARIABLES ------------------
