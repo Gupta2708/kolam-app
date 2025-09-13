@@ -21,8 +21,14 @@ export default function KolamGeneratorScreen() {
     setLoading(true);
     setImgUrl(null);
 
+    let gridtoSend = gridSize;
+    const match = /^1-(\d+)-1$/.exec(gridSize.trim());
+    if(match) {
+      gridtoSend = match[1]; 
+    }
+
     try {
-      const data = await generateKolam(gridSize, "traditional");
+      const data = await generateKolam(gridtoSend, "traditional");
       console.log("Kolam API response:", data);
 
       // Try to resolve URL from possible fields

@@ -59,7 +59,7 @@ def parse_kolam_data(file_path):
 def generate_grid_layout(grid_size, id_to_pattern, allowed_top_left):
     grid = [[None] * grid_size for _ in range(grid_size)]
     half_size = grid_size // 2
-
+    
     # Fill top-left quadrant
     for r in range(half_size):
         for c in range(half_size):
